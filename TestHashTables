@@ -1,0 +1,30 @@
+public class TestHashTables {
+    public static void main(String[] args) {
+        int M = 100;
+        SeparateChainingHashSTWithRBTree<Integer, String> hashSTWithRBTree = new SeparateChainingHashSTWithRBTree<>(M);
+        
+        // Inserção
+        long startTime = System.nanoTime();
+        for (int i = 0; i < 10000; i++) {
+            hashSTWithRBTree.put(i, "Value " + i);
+        }
+        long endTime = System.nanoTime();
+        System.out.println("Tempo médio de inserção com Árvore Rubro-Negra: " + (endTime - startTime) / 10000.0 + " ns");
+
+        // Busca
+        startTime = System.nanoTime();
+        for (int i = 0; i < 10000; i++) {
+            hashSTWithRBTree.get(i);
+        }
+        endTime = System.nanoTime();
+        System.out.println("Tempo médio de busca com Árvore Rubro-Negra: " + (endTime - startTime) / 10000.0 + " ns");
+
+        // Deleção
+        startTime = System.nanoTime();
+        for (int i = 0; i < 10000; i++) {
+            hashSTWithRBTree.delete(i);
+        }
+        endTime = System.nanoTime();
+        System.out.println("Tempo médio de deleção com Árvore Rubro-Negra: " + (endTime - startTime) / 10000.0 + " ns");
+    }
+}
